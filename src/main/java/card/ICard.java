@@ -11,18 +11,18 @@ import gameEntity.Player;
  */
 public interface ICard {
 	
-public String doEffect(Player player, List<Player> players);
+	String doEffect(Player player, List<Player> players);
     
-    public String showDescription();
+    String showDescription();
     
-    public String showName();
+    String showName();
     
-    public int goldCost();
+    int goldCost();
     
-    public int redCost();
+    int redCost();
     
-    public int blueCost();
+    int blueCost();
     
-    public int greenCost();
+    int greenCost();
 
 }

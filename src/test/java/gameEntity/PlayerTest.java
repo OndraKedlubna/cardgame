@@ -62,6 +62,7 @@ public class PlayerTest {
 		return r;
 	}
 
+	//TODO Later
 	@Test
 	public void checkNextRound() {
 		testInstance.nextRound();
@@ -71,11 +72,7 @@ public class PlayerTest {
 		assertEquals(testInstance.getRedMana().getAmount(), 12);
 	}
 
-	@Test
-	public void checkToString() {
-		System.out.println(testInstance);
-	}
-
+	//TODO
 	@Test
 	public void checkThrowCard() {
 		assertEquals(2, testInstance.getHand().size());
@@ -85,6 +82,7 @@ public class PlayerTest {
 		assertEquals(3, testInstance.getDeletePack().size());
 	}
 
+	//?
 	@Test
 	public void testRefillPack() {
 		testInstance.setPack(new ArrayList<>());
@@ -95,6 +93,7 @@ public class PlayerTest {
 		assertEquals(2, testInstance.getPack().size());
 	}
 
+	//TODO
 	@Test
 	public void testPickCard() {
 		testInstance.getHand().add(testInstance.pickCard());
@@ -103,6 +102,7 @@ public class PlayerTest {
 		assertEquals(0, testInstance.getPack().size());
 	}
 
+	//TODO
 	@Test
 	public void testPickCardReffil() {
 		//testInstance.getDeletePack().add(new RedEnergy());
@@ -115,6 +115,7 @@ public class PlayerTest {
 		assertEquals(2, testInstance.getPack().size());
 	}
 
+	//OK
 	@Test
 	public void testPickCardNull() {
 		testInstance.setPack(new ArrayList<>());
@@ -122,6 +123,7 @@ public class PlayerTest {
 		assertNull(testInstance.pickCard());
 	}
 
+	//TODO
 	@Test
 	public void testGainCard() {
 		assertEquals(2, testInstance.getHand().size());
@@ -129,6 +131,7 @@ public class PlayerTest {
 		assertEquals(3, testInstance.getHand().size());
 	}
 
+	//OK
 	@Test
 	public void testGainCardNull() {
 		testInstance.setPack(new ArrayList<>());
