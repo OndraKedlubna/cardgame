@@ -7,6 +7,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -40,6 +41,9 @@ public class PlayerTest {
 	
 	@Mock
 	private ICard card6;
+	
+	@Mock
+	private ICard card7;
 
 	@Before
 	public void setUp() {
@@ -48,9 +52,18 @@ public class PlayerTest {
 		testInstance.setBlueMana(createRawMaterial("BM", 6, 15, 2));
 		testInstance.setGreenMana(createRawMaterial("GM", 7, 15, 3));
 		testInstance.setRedMana(createRawMaterial("RM", 8, 15, 4));
-		testInstance.setHand(Arrays.asList(card1, card2));
-		testInstance.setDeletePack(Arrays.asList(card3, card4));
-		testInstance.setPack(Arrays.asList(card5, card6));
+		List<ICard> hand = new ArrayList<>();
+		hand.add(card1);
+		hand.add(card2);
+		testInstance.setHand(hand);
+		List<ICard> deletePack = new ArrayList<>();
+		deletePack.add(card3);
+		deletePack.add(card4);
+		testInstance.setDeletePack(deletePack);
+		List<ICard> pack = new ArrayList<>();
+		pack.add(card5);
+		pack.add(card6);
+		testInstance.setPack(pack);
 	}
 
 	private RawMaterial createRawMaterial(String name, int amount, int max, int grow) {
@@ -72,7 +85,6 @@ public class PlayerTest {
 		assertEquals(testInstance.getRedMana().getAmount(), 12);
 	}
 
-	//TODO
 	@Test
 	public void checkThrowCard() {
 		assertEquals(2, testInstance.getHand().size());
@@ -82,7 +94,6 @@ public class PlayerTest {
 		assertEquals(3, testInstance.getDeletePack().size());
 	}
 
-	//?
 	@Test
 	public void testRefillPack() {
 		testInstance.setPack(new ArrayList<>());
@@ -93,7 +104,6 @@ public class PlayerTest {
 		assertEquals(2, testInstance.getPack().size());
 	}
 
-	//TODO
 	@Test
 	public void testPickCard() {
 		testInstance.getHand().add(testInstance.pickCard());
@@ -102,10 +112,9 @@ public class PlayerTest {
 		assertEquals(0, testInstance.getPack().size());
 	}
 
-	//TODO
 	@Test
 	public void testPickCardReffil() {
-		//testInstance.getDeletePack().add(new RedEnergy());
+		testInstance.getDeletePack().add(card7);
 		testInstance.setPack(new ArrayList<>());
 		assertEquals(3, testInstance.getDeletePack().size());
 		assertEquals(0, testInstance.getPack().size());
@@ -115,7 +124,6 @@ public class PlayerTest {
 		assertEquals(2, testInstance.getPack().size());
 	}
 
-	//OK
 	@Test
 	public void testPickCardNull() {
 		testInstance.setPack(new ArrayList<>());
@@ -123,7 +131,6 @@ public class PlayerTest {
 		assertNull(testInstance.pickCard());
 	}
 
-	//TODO
 	@Test
 	public void testGainCard() {
 		assertEquals(2, testInstance.getHand().size());
@@ -131,7 +138,6 @@ public class PlayerTest {
 		assertEquals(3, testInstance.getHand().size());
 	}
 
-	//OK
 	@Test
 	public void testGainCardNull() {
 		testInstance.setPack(new ArrayList<>());

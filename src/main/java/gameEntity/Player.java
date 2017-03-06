@@ -31,6 +31,10 @@ public class Player {
     
     //Metody manipulujici s balickem
     
+    /**
+     * Zahodi kartu z ruky na odlozeny balicek.
+     * @param card karta k zahozeni
+     */
     public void throwCard(ICard card){
         hand.remove(card);
         deletePack.add(card);
@@ -40,6 +44,10 @@ public class Player {
         //TODO while
     }
     
+    /**
+     * Vlozi kartu do ruky, pokud existuje karta v dobiracim balicku nebo odlozenym balicku
+     * @return true, pokud je pridana karta
+     */
     public boolean gainCard(){
         ICard card = pickCard();
         if(card== null){
@@ -49,6 +57,11 @@ public class Player {
         return true;
     }
     
+    /**
+     * Vezme kartu. Pokud je balicek prazdny naplni ho odlozenym balickem.
+     * Pokud je i odlozeny balicke prazdny, vrati null.
+     * @return Vybrana karta
+     */
     public ICard pickCard(){
         if(pack.isEmpty()){
             refillPack();
@@ -61,6 +74,9 @@ public class Player {
         return choosen;
     }
     
+    /**
+     * Da karty z odlozeneho balicku do dobiraciho balicku.
+     */
     public void refillPack(){
         if(deletePack.size()>0){
             deletePack.stream()
