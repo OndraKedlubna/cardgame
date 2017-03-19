@@ -6,7 +6,6 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Before;
@@ -14,6 +13,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import card.ICard;
@@ -44,14 +44,26 @@ public class PlayerTest {
 	
 	@Mock
 	private ICard card7;
+	
+	@Mock
+	private RawMaterial gold;
+	
+	@Mock
+	private RawMaterial blueMana;
+	
+	@Mock
+	private RawMaterial greenMana;
+	
+	@Mock
+	private RawMaterial redMana;
 
 	@Before
 	public void setUp() {
 		testInstance.setName("Alex");
-		testInstance.setGold(createRawMaterial("gold", 5, 15, 1));
-		testInstance.setBlueMana(createRawMaterial("BM", 6, 15, 2));
-		testInstance.setGreenMana(createRawMaterial("GM", 7, 15, 3));
-		testInstance.setRedMana(createRawMaterial("RM", 8, 15, 4));
+		testInstance.setGold(gold);
+		testInstance.setBlueMana(blueMana);
+		testInstance.setGreenMana(greenMana);
+		testInstance.setRedMana(redMana);
 		List<ICard> hand = new ArrayList<>();
 		hand.add(card1);
 		hand.add(card2);
@@ -66,23 +78,13 @@ public class PlayerTest {
 		testInstance.setPack(pack);
 	}
 
-	private RawMaterial createRawMaterial(String name, int amount, int max, int grow) {
-		RawMaterial r = new RawMaterial();
-		r.setName(name);
-		r.setAmount(amount);
-		r.setGrow(grow);
-		r.setMaxAmount(max);
-		return r;
-	}
-
-	//TODO Later
 	@Test
 	public void checkNextRound() {
 		testInstance.nextRound();
-		assertEquals(testInstance.getGold().getAmount(), 6);
-		assertEquals(testInstance.getBlueMana().getAmount(), 8);
-		assertEquals(testInstance.getGreenMana().getAmount(), 10);
-		assertEquals(testInstance.getRedMana().getAmount(), 12);
+		Mockito.verify(gold).increase();
+		Mockito.verify(blueMana).increase();
+		Mockito.verify(greenMana).increase();
+		Mockito.verify(redMana).increase();
 	}
 
 	@Test
