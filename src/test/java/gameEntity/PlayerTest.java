@@ -148,5 +148,18 @@ public class PlayerTest {
 		assertFalse(testInstance.gainCard());
 		assertEquals(2, testInstance.getHand().size());
 	}
+	
+	@Test
+	public void testFillHand(){
+		testInstance.fillHand();
+		assertEquals(5, testInstance.getHand().size());
+	}
+	
+	@Test
+	public void testFillHandWithEmptyPack(){
+		testInstance.setPack(new ArrayList<>());
+		testInstance.fillHand();
+		assertEquals(4, testInstance.getHand().size());
+	}
 
 }

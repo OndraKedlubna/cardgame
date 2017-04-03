@@ -40,8 +40,16 @@ public class Player {
         deletePack.add(card);
     }
     
+    /**
+     * doplni karty do ruky
+     */
     public void fillHand(){
-        //TODO while
+    	while(hand.size()<5){
+    		boolean gained = gainCard();
+    		if (gained==false){
+    			break;
+    		}
+    	}
     }
     
     /**
