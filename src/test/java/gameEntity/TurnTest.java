@@ -9,14 +9,21 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.junit.MockitoJUnitRunner;
 
 import enums.Action;
 import enums.AnswerType;
 
+@RunWith(MockitoJUnitRunner.class)
 public class TurnTest {
 	
+	@InjectMocks
 	private Turn testInstance;
+	
     private Player player;
+    
     private List<Player> players;
 
     public TurnTest() {
@@ -34,10 +41,10 @@ public class TurnTest {
     public void setUp() {
         testInstance = new Turn();
         //player = new PlayerBuilder().buildPlayer("Alex", null, true);
-        players = Arrays.asList(player);
+        //players = Arrays.asList(player);
         //player.getHand().add(new RedEnergy());
     }
-
+//TODO
     @Test
     public void testPlayAction() {
         testInstance.setIdCard(1);
@@ -47,6 +54,7 @@ public class TurnTest {
         assertEquals(AnswerType.ACCEPT, testInstance.getAnswer().getType());
     }
 
+  //TODO
     @Test
     public void testPlayActionReject() {
         testInstance.setIdCard(2);
@@ -57,6 +65,7 @@ public class TurnTest {
                 testInstance.getAnswer().getText());
     }
     
+  //TODO
     @Test
     public void testPlayNotResourceReject() {
         player.getGold().setAmount(0);
@@ -68,6 +77,7 @@ public class TurnTest {
                 testInstance.getAnswer().getText());
     }
 
+  //TODO
     @Test
     public void testThrowActionReject() {
         testInstance.setIdCard(2);
@@ -78,6 +88,7 @@ public class TurnTest {
                 testInstance.getAnswer().getText());
     }
 
+  //TODO
     @Test
     public void testCost() {
         //assertEquals(true, testInstance.compareValue(player, new RedEnergy()));
