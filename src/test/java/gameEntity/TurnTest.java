@@ -55,20 +55,21 @@ public class TurnTest {
         players = Arrays.asList(player1, player2, player3);
         Mockito.when(player.getHand()).thenReturn(Arrays.asList(card, card2));
     }
-//TODO
+
     @Test
     public void testPlayAction() {
+    	initMaterials();
         testInstance.setIdCard(1);
         testInstance.setAction(Action.PLAY);
         testInstance.doAction(player, players);
-        assertEquals(10, player.getRedMana().getAmount());
         assertEquals(AnswerType.ACCEPT, testInstance.getAnswer().getType());
+        assertEquals("Karta zahrána", testInstance.getAnswer().getText());
     }
 
-  //TODO
     @Test
     public void testPlayActionReject() {
-        testInstance.setIdCard(2);
+    	initMaterials();
+        testInstance.setIdCard(3);
         testInstance.setAction(Action.PLAY);
         testInstance.doAction(player, players);
         assertEquals(AnswerType.REJECT, testInstance.getAnswer().getType());
