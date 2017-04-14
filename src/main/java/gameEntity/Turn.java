@@ -107,4 +107,5 @@ public class Turn {
 	public void setAnswer(Answer Answer) {
 		this.answer = Answer;
 	}
+	
 }
