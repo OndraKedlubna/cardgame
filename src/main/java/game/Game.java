@@ -14,6 +14,7 @@ public class Game {
 
 	private List<Player> players;
     private Player playerOnTurn;
+    private boolean gameEnded;//TODO manipulation
     
     //TODO initGameMethod
     //TODO Winning
