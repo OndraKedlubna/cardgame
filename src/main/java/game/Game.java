@@ -14,10 +14,9 @@ public class Game {
 
 	private List<Player> players;
     private Player playerOnTurn;
-    private boolean gameEnded;//TODO manipulation
+    private boolean gameEnded;
     
     //TODO initGameMethod
-    //TODO Winning
 
     /**
      * Spusti hru. Predpoklada, ze hraci jsou nastaveni
@@ -38,12 +37,20 @@ public class Game {
     public Turn doPlay(Turn turn) {
         doTurn(turn);
         if (playerOnTurn.getAction() < 1) {
-        	//Winning conditions?
+        	if(playerWon(playerOnTurn)){
+        		playerOnTurn.setPlayerWon(true);
+        		gameEnded = true;
+        	}
             playerOnTurn = playerOnTurn.getNextPlayer();
             playerOnTurn.setAction(1);
+            playerOnTurn.fillHand();
             return turn;
         }
         return turn;
+    }
+    
+    private boolean playerWon(Player player){
+    	return player.getGold().getAmount() > 100;
     }
 
     /**
@@ -85,4 +92,12 @@ public class Game {
     public void setPlayerOnTurn(Player playerOnTurn) {
         this.playerOnTurn = playerOnTurn;
     }
+
+	public boolean isGameEnded() {
+		return gameEnded;
+	}
+
+	public void setGameEnded(boolean gameEnded) {
+		this.gameEnded = gameEnded;
+	}
 }

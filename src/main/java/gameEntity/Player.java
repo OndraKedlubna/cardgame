@@ -13,9 +13,9 @@ public class Player {
     private RawMaterial blueMana;
     private RawMaterial greenMana;
     private RawMaterial redMana;
+    private boolean playerWon = false;
     
     private boolean starter;
-    private boolean winCondition = false;
     private Player nextPlayer;
     private List<ICard> hand;
     private List<ICard> pack;
@@ -41,7 +41,7 @@ public class Player {
     }
     
     /**
-     * doplni karty do ruky
+     * doplni karty do ruky. Pouzit na zacatku tahu
      */
     public void fillHand(){
     	while(hand.size()<5){
@@ -151,14 +151,6 @@ public class Player {
         this.name = name;
     }
 
-    public boolean isWinCondition() {
-        return winCondition;
-    }
-
-    public void setWinCondition(boolean winCondition) {
-        this.winCondition = winCondition;
-    }
-
     public int getAction() {
         return action;
     }
@@ -189,9 +181,17 @@ public class Player {
 
     public void setDeletePack(List<ICard> deletePack) {
         this.deletePack = deletePack;
-    }  
+    }
 
-    @Override
+    public boolean isPlayerWon() {
+		return playerWon;
+	}
+
+	public void setPlayerWon(boolean playerWon) {
+		this.playerWon = playerWon;
+	}
+
+	@Override
     public String toString() {
         String s = " Name: " + name+ "\n"
                 + "  Gold: " + gold.toString() + "\n"

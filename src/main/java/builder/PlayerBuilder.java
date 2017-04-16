@@ -18,6 +18,7 @@ public class PlayerBuilder {
         p.setHand(new ArrayList<>());
         p.setDeletePack(new ArrayList<>());
         p.setPack(new ArrayList<>());
+        p.setPlayerWon(false);
         initRaws(p);
         return p;
     }
