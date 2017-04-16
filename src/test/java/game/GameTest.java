@@ -2,6 +2,7 @@ package game;
 
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Arrays;
 import java.util.List;
@@ -80,6 +81,26 @@ public class GameTest {
 		Mockito.when(answer.getType()).thenReturn(AnswerType.ACCEPT);
 		testInstance.doPlay(turn);
 		Mockito.verify(player1).setAction(3);
+	}
+	
+	@Test
+	public void testDoPlay(){
+		Turn turn2 = testInstance.doPlay(turn);
+		assertTrue(turn2 == turn);
+	}
+	
+	@Test
+	public void testSwitchingPlayers(){
+		Mockito.when(player1.getAction()).thenReturn(0);
+		testInstance.doPlay(turn);
+		assertEquals(player2, testInstance.getPlayerOnTurn());		
+	}
+	
+	@Test
+	public void testSwitchingPlayersAction(){
+		Mockito.when(player1.getAction()).thenReturn(0);
+		testInstance.doPlay(turn);
+		Mockito.verify(player2).setAction(1);	
 	}
 	
 	
