@@ -4,6 +4,7 @@ package game;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -14,6 +15,9 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.contains;
 
 import enums.AnswerType;
 import gameEntity.Player;
@@ -69,6 +73,7 @@ public class GameTest {
 	public void testStartPlay(){
 		Turn turn = testInstance.startPlay();
 		Mockito.verify(player1).setAction(1);
+		Mockito.verify(player1).fillHand();
 		assertEquals(null, turn.getAction());
 		assertEquals(null, turn.getAnswer());
 		assertEquals(0, turn.getIdCard());		
@@ -121,8 +126,15 @@ public class GameTest {
 		Mockito.when(gold.getAmount()).thenReturn(150);
 		testInstance.doPlay(turn);
 		Mockito.verify(player1).setPlayerWon(true);
-		assertTrue(testInstance.isGameEnded());
-		
+		assertTrue(testInstance.isGameEnded());	
+	}
+	
+	@Test
+	public void testAddPLayers(){
+		testInstance.setPlayers(new ArrayList<>());
+		testInstance.addPlayer(player1);
+		testInstance.addPlayer(player2);
+		assertThat(testInstance.getPlayers(), contains(player1, player2));
 	}
 	
 	

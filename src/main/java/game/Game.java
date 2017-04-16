@@ -15,8 +15,7 @@ public class Game {
 	private List<Player> players;
     private Player playerOnTurn;
     private boolean gameEnded;
-    
-    //TODO initGameMethod
+   
 
     /**
      * Spusti hru. Predpoklada, ze hraci jsou nastaveni
@@ -25,6 +24,7 @@ public class Game {
     public Turn startPlay() {
         playerOnTurn = findStarter();
         playerOnTurn.setAction(1);
+        playerOnTurn.fillHand();
         return new Turn();
     }
 
@@ -75,6 +75,10 @@ public class Game {
                 .filter(i -> i.isStarter() == true)
                 .collect(Collectors.toList());
         return p.size() == 1 ? p.get(0) : null;
+    }
+    
+    public void addPlayer(Player player){
+    	players.add(player);
     }
 
     public List<Player> getPlayers() {
