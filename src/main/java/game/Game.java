@@ -14,7 +14,7 @@ public class Game {
 
 	private List<Player> players;
     private Player playerOnTurn;
-    private boolean gameEnded;//TODO manipulation
+    private boolean gameEnded;
     
     //TODO initGameMethod
     //TODO Winning
@@ -38,12 +38,19 @@ public class Game {
     public Turn doPlay(Turn turn) {
         doTurn(turn);
         if (playerOnTurn.getAction() < 1) {
-        	//Winning conditions?
+        	if(playerWon(playerOnTurn)){
+        		playerOnTurn.setWinCondition(true);
+        		gameEnded = true;
+        	}
             playerOnTurn = playerOnTurn.getNextPlayer();
             playerOnTurn.setAction(1);
             return turn;
         }
         return turn;
+    }
+    
+    private boolean playerWon(Player player){
+    	return player.getGold().getAmount() > 100;
     }
 
     /**

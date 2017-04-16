@@ -1,6 +1,7 @@
 package builder;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -23,6 +24,7 @@ public class PlayerBuilderTest {
 		assertEquals(p.isStarter(), true);
 		assertEquals(p2.getNextPlayer(), p);
 		assertEquals(p.getHand().size(), 0);
+		assertFalse(p.isPlayerWon());
 
 		assertEquals(p.getGold().getName(), "gold");
 		assertEquals(p.getGold().getMaxAmount(), 50);

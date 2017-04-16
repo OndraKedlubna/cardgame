@@ -17,6 +17,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 import enums.AnswerType;
 import gameEntity.Player;
+import gameEntity.RawMaterial;
 import gameEntity.Turn;
 import simpleEntity.Answer;
 
@@ -44,6 +45,9 @@ public class GameTest {
 	@Mock
 	private Answer answer;
 	
+	@Mock
+	private RawMaterial gold;
+	
 	private List<Player> players;
 	
 	@Before
@@ -57,6 +61,8 @@ public class GameTest {
 		Mockito.when(player4.isStarter()).thenReturn(false);
 		Mockito.when(turn.getAnswer()).thenReturn(answer);
 		Mockito.when(player1.getNextPlayer()).thenReturn(player2);
+		Mockito.when(player1.getGold()).thenReturn(gold);
+		Mockito.when(gold.getAmount()).thenReturn(0);
     }
 	
 	@Test

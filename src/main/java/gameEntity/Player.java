@@ -13,6 +13,7 @@ public class Player {
     private RawMaterial blueMana;
     private RawMaterial greenMana;
     private RawMaterial redMana;
+    private boolean playerWon;
     
     private boolean starter;
     private boolean winCondition = false;
@@ -189,9 +190,17 @@ public class Player {
 
     public void setDeletePack(List<ICard> deletePack) {
         this.deletePack = deletePack;
-    }  
+    }
 
-    @Override
+    public boolean isPlayerWon() {
+		return playerWon;
+	}
+
+	public void setPlayerWon(boolean playerWon) {
+		this.playerWon = playerWon;
+	}
+
+	@Override
     public String toString() {
         String s = " Name: " + name+ "\n"
                 + "  Gold: " + gold.toString() + "\n"
