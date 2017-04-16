@@ -39,7 +39,7 @@ public class Game {
         doTurn(turn);
         if (playerOnTurn.getAction() < 1) {
         	if(playerWon(playerOnTurn)){
-        		playerOnTurn.setWinCondition(true);
+        		playerOnTurn.setPlayerWon(true);
         		gameEnded = true;
         	}
             playerOnTurn = playerOnTurn.getNextPlayer();
@@ -92,4 +92,12 @@ public class Game {
     public void setPlayerOnTurn(Player playerOnTurn) {
         this.playerOnTurn = playerOnTurn;
     }
+
+	public boolean isGameEnded() {
+		return gameEnded;
+	}
+
+	public void setGameEnded(boolean gameEnded) {
+		this.gameEnded = gameEnded;
+	}
 }

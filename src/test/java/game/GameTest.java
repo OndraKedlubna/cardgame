@@ -109,5 +109,14 @@ public class GameTest {
 		Mockito.verify(player2).setAction(1);	
 	}
 	
+	@Test
+	public void testWinningGame(){
+		Mockito.when(gold.getAmount()).thenReturn(150);
+		testInstance.doPlay(turn);
+		Mockito.verify(player1).setPlayerWon(true);
+		assertTrue(testInstance.isGameEnded());
+		
+	}
+	
 	
 }

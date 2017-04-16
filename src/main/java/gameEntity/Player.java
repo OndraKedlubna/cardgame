@@ -13,10 +13,9 @@ public class Player {
     private RawMaterial blueMana;
     private RawMaterial greenMana;
     private RawMaterial redMana;
-    private boolean playerWon;
+    private boolean playerWon = false;
     
     private boolean starter;
-    private boolean winCondition = false;
     private Player nextPlayer;
     private List<ICard> hand;
     private List<ICard> pack;
@@ -150,14 +149,6 @@ public class Player {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public boolean isWinCondition() {
-        return winCondition;
-    }
-
-    public void setWinCondition(boolean winCondition) {
-        this.winCondition = winCondition;
     }
 
     public int getAction() {
