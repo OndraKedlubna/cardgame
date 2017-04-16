@@ -17,7 +17,6 @@ public class Game {
     private boolean gameEnded;
     
     //TODO initGameMethod
-    //TODO Winning
 
     /**
      * Spusti hru. Predpoklada, ze hraci jsou nastaveni
@@ -44,6 +43,7 @@ public class Game {
         	}
             playerOnTurn = playerOnTurn.getNextPlayer();
             playerOnTurn.setAction(1);
+            playerOnTurn.fillHand();
             return turn;
         }
         return turn;

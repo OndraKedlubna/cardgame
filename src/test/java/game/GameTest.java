@@ -110,6 +110,13 @@ public class GameTest {
 	}
 	
 	@Test
+	public void testSwitchingPlayersFill(){
+		Mockito.when(player1.getAction()).thenReturn(0);
+		testInstance.doPlay(turn);
+		Mockito.verify(player2).fillHand();	
+	}
+	
+	@Test
 	public void testWinningGame(){
 		Mockito.when(gold.getAmount()).thenReturn(150);
 		testInstance.doPlay(turn);

@@ -41,7 +41,7 @@ public class Player {
     }
     
     /**
-     * doplni karty do ruky
+     * doplni karty do ruky. Pouzit na zacatku tahu
      */
     public void fillHand(){
     	while(hand.size()<5){
