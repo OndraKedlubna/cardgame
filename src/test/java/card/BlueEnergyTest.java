@@ -5,30 +5,26 @@ import static org.junit.Assert.assertEquals;
 import org.mockito.InjectMocks;
 import org.mockito.Mockito;
 
-public class RedEnergyTest extends AbstractCardTest {
+public class BlueEnergyTest extends AbstractCardTest {
 	
 	@InjectMocks
-	private RedEnergy testInstance;
-	
+	private BlueEnergy testInstance;
+
 	@Override
 	protected ICard getTestInstance() {
 		return testInstance;
 	}
-	
-	
 
 	@Override
 	protected void verifyEfect() {
-		Mockito.verify(redMana).increase(5);		
+		Mockito.verify(blueMana).increase(5);
+
 	}
-
-
 
 	@Override
 	protected void verifyMessage(String result) {
-		assertEquals(result, "Red Mana of Alex increased + 5 to 0");		
-	}
+		assertEquals(result, "Blue Mana of Alex increased + 5 to 0");
 
-	
+	}
 
 }

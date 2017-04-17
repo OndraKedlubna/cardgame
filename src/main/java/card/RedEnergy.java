@@ -9,7 +9,7 @@ public class RedEnergy implements ICard{
 	@Override
     public String doEffect(Player player, List<Player> players) {
         player.getRedMana().increase(5);
-        return "RedMana of " + player.getName() + " increased + 5 to " + player.getRedMana().getAmount();
+        return "Red Mana of " + player.getName() + " increased + 5 to " + player.getRedMana().getAmount();
     }
 
     @Override
@@ -19,7 +19,7 @@ public class RedEnergy implements ICard{
 
     @Override
     public String showName() {
-        return "redEnergy";
+        return "Red Energy";
     }
 
     @Override
