@@ -50,7 +50,7 @@ public class Game {
     }
     
     private boolean playerWon(Player player){
-    	return player.getGold().getAmount() > 100;
+    	return player.getTower() > 4;
     }
 
     /**

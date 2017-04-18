@@ -25,6 +25,7 @@ public class PlayerBuilderTest {
 		assertEquals(p2.getNextPlayer(), p);
 		assertEquals(p.getHand().size(), 0);
 		assertFalse(p.isPlayerWon());
+		assertEquals(0, p.getTower());
 
 		assertEquals(p.getGold().getName(), "gold");
 		assertEquals(p.getGold().getMaxAmount(), 50);

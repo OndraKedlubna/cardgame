@@ -19,6 +19,7 @@ public class PlayerBuilder {
         p.setDeletePack(new ArrayList<>());
         p.setPack(new ArrayList<>());
         p.setPlayerWon(false);
+        p.setTower(0);
         initRaws(p);
         return p;
     }

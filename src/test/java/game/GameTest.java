@@ -65,8 +65,6 @@ public class GameTest {
 		Mockito.when(player4.isStarter()).thenReturn(false);
 		Mockito.when(turn.getAnswer()).thenReturn(answer);
 		Mockito.when(player1.getNextPlayer()).thenReturn(player2);
-		Mockito.when(player1.getGold()).thenReturn(gold);
-		Mockito.when(gold.getAmount()).thenReturn(0);
     }
 	
 	@Test
@@ -123,7 +121,7 @@ public class GameTest {
 	
 	@Test
 	public void testWinningGame(){
-		Mockito.when(gold.getAmount()).thenReturn(150);
+		Mockito.when(player1.getTower()).thenReturn(5);
 		testInstance.doPlay(turn);
 		Mockito.verify(player1).setPlayerWon(true);
 		assertTrue(testInstance.isGameEnded());	

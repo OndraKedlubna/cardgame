@@ -14,6 +14,7 @@ public class Player {
     private RawMaterial greenMana;
     private RawMaterial redMana;
     private boolean playerWon = false;
+    private int tower;
     
     private boolean starter;
     private Player nextPlayer;
@@ -189,6 +190,14 @@ public class Player {
 
 	public void setPlayerWon(boolean playerWon) {
 		this.playerWon = playerWon;
+	}
+
+	public int getTower() {
+		return tower;
+	}
+
+	public void setTower(int tower) {
+		this.tower = tower;
 	}
 
 	@Override
