@@ -1,5 +1,5 @@
 package enums;
 
 public enum Action {
-	PLAY, THROW
+	PLAY, THROW, BUILD
 }

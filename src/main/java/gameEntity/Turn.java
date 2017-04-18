@@ -3,6 +3,7 @@ package gameEntity;
 import java.util.List;
 
 import card.ICard;
+import constant.Constant;
 import enums.Action;
 import enums.AnswerType;
 import simpleEntity.Answer;
@@ -28,6 +29,7 @@ public class Turn {
 		if (action.equals(Action.THROW)) {
 			throwCard(player);
 		}
+		//TODO BUILD
 	}
 
 	/**
@@ -43,6 +45,7 @@ public class Turn {
 			if (compareValue(player, player.getHand().get(idCard - 1)) == false) {
 				answer = new Answer(AnswerType.REJECT, "Na tuto kartu hráč nemá dostatek zdrojů");
 			} else {
+				//ODECITAJI SE ZDROJE
 				answer = new Answer(AnswerType.ACCEPT, "Karta zahrána");
 				answer.setCardAnswer(player.getHand().get(idCard - 1).doEffect(player, players));
 			}
@@ -60,6 +63,38 @@ public class Turn {
 			answer = new Answer(AnswerType.ACCEPT, "Karta zahozena");
 			player.throwCard(player.getHand().get(idCard - 1));
 		}
+	}
+	
+	private void buildTower(Player player){
+		if(compareTowerValue(player)){
+			player.getGold().decrease(Constant.GOLD_COST_TOWER);
+			player.getBlueMana().decrease(Constant.BLUE_COST_TOWER);
+			player.getRedMana().decrease(Constant.RED_COST_TOWER);
+			player.getGreenMana().decrease(Constant.GREEN_COST_TOWER);
+			answer = new Answer(AnswerType.ACCEPT, "Patro veze postaveno");
+		} else {
+			answer = new Answer(AnswerType.REJECT, "Na stavbu veze neni dost penez");
+		}
+	}
+	
+	/**
+	 * Overuje, zda ma hrac dost surovin na stavbu patra.
+	 * @return true, pokud hrac na stavbu ma
+	 */
+	public boolean compareTowerValue(Player player){
+		if (player.getGold().getAmount() < Constant.GOLD_COST_TOWER) {
+			return false;
+		}
+		if (player.getBlueMana().getAmount() < Constant.BLUE_COST_TOWER) {
+			return false;
+		}
+		if (player.getGreenMana().getAmount() < Constant.GREEN_COST_TOWER) {
+			return false;
+		}
+		if (player.getRedMana().getAmount() < Constant.RED_COST_TOWER) {
+			return false;
+		}
+		return true;
 	}
 
 	/**

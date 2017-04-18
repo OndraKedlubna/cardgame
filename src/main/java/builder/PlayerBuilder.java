@@ -25,7 +25,7 @@ public class PlayerBuilder {
     }
     
     private void initRaws(Player p){
-        p.setGold(buildRaw("gold", 50, 5, 1));
+        p.setGold(buildRaw("gold", 50, 10, 2));
         p.setBlueMana(buildRaw("BM", 50, 5, 1));
         p.setGreenMana(buildRaw("GM", 50, 5, 1));
         p.setRedMana(buildRaw("RM", 50, 5, 1));

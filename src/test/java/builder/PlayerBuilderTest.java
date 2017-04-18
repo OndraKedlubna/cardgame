@@ -29,8 +29,8 @@ public class PlayerBuilderTest {
 
 		assertEquals(p.getGold().getName(), "gold");
 		assertEquals(p.getGold().getMaxAmount(), 50);
-		assertEquals(p.getGold().getAmount(), 5);
-		assertEquals(p.getGold().getGrow(), 1);
+		assertEquals(p.getGold().getAmount(), 10);
+		assertEquals(p.getGold().getGrow(), 2);
 
 		assertEquals(p.getBlueMana().getName(), "BM");
 		assertEquals(p.getBlueMana().getMaxAmount(), 50);
