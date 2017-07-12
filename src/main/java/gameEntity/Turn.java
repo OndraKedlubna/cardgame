@@ -29,7 +29,7 @@ public class Turn {
 		if (action.equals(Action.THROW)) {
 			throwCard(player);
 		}
-		//TODO BUILD
+		//TODO BUILD + testBuildmethods
 	}
 
 	/**
@@ -71,6 +71,7 @@ public class Turn {
 			player.getBlueMana().decrease(Constant.BLUE_COST_TOWER);
 			player.getRedMana().decrease(Constant.RED_COST_TOWER);
 			player.getGreenMana().decrease(Constant.GREEN_COST_TOWER);
+			player.increaseTower();
 			answer = new Answer(AnswerType.ACCEPT, "Patro veze postaveno");
 		} else {
 			answer = new Answer(AnswerType.REJECT, "Na stavbu veze neni dost penez");

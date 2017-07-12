@@ -64,6 +64,7 @@ public class PlayerTest {
 		testInstance.setBlueMana(blueMana);
 		testInstance.setGreenMana(greenMana);
 		testInstance.setRedMana(redMana);
+		testInstance.setTower(0);
 		List<ICard> hand = new ArrayList<>();
 		hand.add(card1);
 		hand.add(card2);
@@ -161,5 +162,12 @@ public class PlayerTest {
 		testInstance.fillHand();
 		assertEquals(4, testInstance.getHand().size());
 	}
+	
+	@Test
+	public void testIncreaseTower(){
+		testInstance.increaseTower();
+		assertEquals(1, testInstance.getTower());
+	}
+	
 
 }

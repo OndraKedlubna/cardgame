@@ -93,6 +93,10 @@ public class Player {
             deletePack = new ArrayList<>();
         }
     }
+    
+    public void increaseTower(){
+    	tower++;
+    }
 
     //SET+ GET
 
