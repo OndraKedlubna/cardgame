@@ -98,6 +98,28 @@ public class TurnTest {
         assertEquals("Chybně zadaný index karty",
                 testInstance.getAnswer().getText());
     }
+    
+    @Test
+    public void testBuildActionAccept(){
+    	initMaterials();
+    	Mockito.when(universalTestMaterial.getAmount()).thenReturn(20);
+    	testInstance.setAction(Action.BUILD);
+        testInstance.doAction(player, players);
+    	assertEquals(AnswerType.ACCEPT, testInstance.getAnswer().getType());
+    	assertEquals("Patro veze postaveno",
+                testInstance.getAnswer().getText());  
+    	//TODO overit, ze se volali player metody
+    }
+    
+    @Test
+    public void testBuildActionReject(){
+    	initMaterials();
+    	testInstance.setAction(Action.BUILD);
+        testInstance.doAction(player, players);
+    	assertEquals(AnswerType.REJECT, testInstance.getAnswer().getType());
+    	assertEquals("Na stavbu veze neni dost penez",
+                testInstance.getAnswer().getText());  	
+    }
 
     @Test
     public void testCost() {

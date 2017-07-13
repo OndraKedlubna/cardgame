@@ -29,7 +29,10 @@ public class Turn {
 		if (action.equals(Action.THROW)) {
 			throwCard(player);
 		}
-		//TODO BUILD + testBuildmethods
+		//TODO testBuildmethods
+		if (action.equals(Action.BUILD)) {
+			buildTower(player);
+		}
 	}
 
 	/**
