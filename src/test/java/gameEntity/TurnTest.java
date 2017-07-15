@@ -44,6 +44,18 @@ public class TurnTest {
     private ICard card2;
     
     @Mock
+    private RawMaterial testedGold;
+    
+    @Mock
+    private RawMaterial testedBlue;
+    
+    @Mock
+    private RawMaterial testedRed;
+    
+    @Mock
+    private RawMaterial testedGreen;
+    
+    @Mock
     private RawMaterial universalTestMaterial;
     
     @Mock
@@ -87,6 +99,7 @@ public class TurnTest {
         assertEquals(AnswerType.REJECT, testInstance.getAnswer().getType());
         assertEquals("Na tuto kartu hráč nemá dostatek zdrojů",
                 testInstance.getAnswer().getText());
+        
     }
 
     @Test
@@ -101,14 +114,16 @@ public class TurnTest {
     
     @Test
     public void testBuildActionAccept(){
-    	initMaterials();
-    	Mockito.when(universalTestMaterial.getAmount()).thenReturn(20);
+    	initMaterialsForBuild();
     	testInstance.setAction(Action.BUILD);
         testInstance.doAction(player, players);
     	assertEquals(AnswerType.ACCEPT, testInstance.getAnswer().getType());
     	assertEquals("Patro veze postaveno",
                 testInstance.getAnswer().getText());  
-    	//TODO overit, ze se volali player metody
+    	Mockito.verify(testedGold).decrease(20);
+    	Mockito.verify(testedBlue).decrease(5);
+    	Mockito.verify(testedRed).decrease(5);
+    	Mockito.verify(testedGreen).decrease(5);
     }
     
     @Test
@@ -166,6 +181,17 @@ public class TurnTest {
     	Mockito.when(card.goldCost()).thenReturn(2);
     	Mockito.when(universalTestMaterial.getAmount()).thenReturn(3);
     	Mockito.when(universalTestMaterial2.getAmount()).thenReturn(1);
+    }
+    
+    private void initMaterialsForBuild(){
+    	Mockito.when(player.getGold()).thenReturn(testedGold);
+    	Mockito.when(player.getBlueMana()).thenReturn(testedBlue);
+    	Mockito.when(player.getRedMana()).thenReturn(testedRed);
+    	Mockito.when(player.getGreenMana()).thenReturn(testedGreen);
+    	Mockito.when(testedGold.getAmount()).thenReturn(20);
+    	Mockito.when(testedBlue.getAmount()).thenReturn(5);
+    	Mockito.when(testedRed.getAmount()).thenReturn(5);
+    	Mockito.when(testedGreen.getAmount()).thenReturn(5);
     }
 
 }
