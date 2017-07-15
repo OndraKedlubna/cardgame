@@ -30,6 +30,7 @@ public class Game {
 
     /**
      * Zahraje tah, pokud poté hráč nemá akci, začne hrát další hráč
+     * Metoda ke spousteni z api
      *
      * @param turn
      * @return player on turn
