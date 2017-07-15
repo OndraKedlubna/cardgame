@@ -78,6 +78,16 @@ public class GameTest {
 	}
 	
 	@Test
+	public void testGameWin(){
+		Mockito.when(player1.getTower()).thenReturn(5);
+		Mockito.when(player1.getAction()).thenReturn(1, 0);
+		Mockito.when(answer.getType()).thenReturn(AnswerType.ACCEPT);
+		testInstance.doPlay(turn);
+		Mockito.verify(player1).setPlayerWon(true);
+		
+	}
+	
+	@Test
 	public void testDoTurn(){
 		Mockito.when(answer.getType()).thenReturn(AnswerType.REJECT);
 		testInstance.doPlay(turn);

@@ -29,7 +29,6 @@ public class Turn {
 		if (action.equals(Action.THROW)) {
 			throwCard(player);
 		}
-		//TODO testBuildmethods
 		if (action.equals(Action.BUILD)) {
 			buildTower(player);
 		}
