@@ -23,6 +23,7 @@ public class RawMaterial {
     }
     
     public void decrease(int i){
+        //TODO nesmi byt mensi jak 0
         amount = amount - i;
     }
     

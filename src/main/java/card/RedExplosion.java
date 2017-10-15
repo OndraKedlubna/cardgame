@@ -12,7 +12,7 @@ public class RedExplosion implements ICard {
                 .forEach(i -> i.getRedMana().decrease(20));
         StringBuilder s = new StringBuilder();
         players.stream()
-                .forEach(i -> s.append("Player " + player.getName() + " has now " + player.getRedMana() + " red mana\r\n"));
+                .forEach(i -> s.append("Player " + i.getName() + " has now " + i.getRedMana().getAmount() + " red mana\r\n"));
         return s.toString();
     }
 

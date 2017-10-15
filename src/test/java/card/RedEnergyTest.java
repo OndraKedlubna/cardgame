@@ -19,7 +19,7 @@ public class RedEnergyTest extends AbstractCardTest {
 
 	@Override
 	protected void verifyEfect() {
-		Mockito.verify(redMana).increase(5);		
+		Mockito.verify(redMana1).increase(5);
 	}
 
 

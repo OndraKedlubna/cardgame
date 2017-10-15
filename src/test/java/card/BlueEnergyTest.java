@@ -17,7 +17,7 @@ public class BlueEnergyTest extends AbstractCardTest {
 
 	@Override
 	protected void verifyEfect() {
-		Mockito.verify(blueMana).increase(5);
+		Mockito.verify(blueMana1).increase(5);
 
 	}
 

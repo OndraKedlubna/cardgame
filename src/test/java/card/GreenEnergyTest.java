@@ -17,7 +17,7 @@ public class GreenEnergyTest extends AbstractCardTest {
 
 	@Override
 	protected void verifyEfect() {
-		Mockito.verify(greenMana).increase(5);	
+		Mockito.verify(greenMana1).increase(5);
 	}
 
 	@Override
