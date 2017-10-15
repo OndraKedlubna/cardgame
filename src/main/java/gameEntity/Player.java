@@ -68,7 +68,7 @@ public class Player {
     
     /**
      * Vezme kartu. Pokud je balicek prazdny naplni ho odlozenym balickem.
-     * Pokud je i odlozeny balicke prazdny, vrati null.
+     * Pokud je i odlozeny balicke prazdny, vrati null
      * @return Vybrana karta
      */
     public ICard pickCard(){
